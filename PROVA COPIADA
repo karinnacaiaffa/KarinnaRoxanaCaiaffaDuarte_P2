@@ -1,0 +1,151 @@
+# Q1-a
+def formataData(data):
+
+    dic = {"Ano": -1, "Mes": -1, "Dia": -1}
+
+    separaData = data.split("/")
+
+    dic["Ano"] = separaData[0]
+    dic["Mes"] = separaData[1]
+    dic["Dia"] = separaData[2]
+
+    return dic
+
+# b
+def ativoBooleano(ativo):
+
+    resp = []
+    resp += ativo
+    result = resp [:-1]
+
+    print (result)
+
+    if result[0] == "SIM":
+        result = True
+        return result
+
+    else:
+        result = False
+        return result
+
+# c
+def listaStrings(string):
+
+    splitString = string.split(":")
+
+    lista = []
+    
+    for ind in range (len(splitString)):
+        lista += splitString[ind]
+
+    return lista
+
+#d
+def leiaArquivo(arquivo):
+    arquivo.seek(0)
+    lista = arquivo.readlines()
+
+    for ind in lista(len(lista-1)):
+        lista[ind] = lista [:-1]
+
+#e
+def main(data,ativo,string,arquivo,listaDicionarios):
+
+    formataData(data)
+    ativoBooleano(ativo)
+    listaStrings(string)
+    leiaArquivo(arquivo)
+
+    arquivo.read()
+
+    print(listaDicionarios)
+
+#2-a
+def inverteMatriz(matriz):
+    a = matriz[0][0]
+    b = matriz[0][1]
+    c = matriz[1][0]
+    d = matriz[1][1]
+
+    detA = (a*d)-(b*c)
+
+    if detA > 0:
+        invDetA = (1/detA)
+        aux = a
+        matriz[0][0] = d
+        matriz[1][1] = aux
+        matriz[0][1] *= -1
+        matriz[1][0] *= -1
+
+        inva = invDetA * matriz[1][1]
+        invb = invDetA * matriz[0][1]
+        invc = invDetA * matriz[1][0]
+        invd = invDetA * matriz[0][0]
+
+        matriz[0][0] = invd
+        matriz[0][1] = invb
+        matriz[1][0] = invc
+        matriz[1][1] = inva
+
+        return matriz
+
+    else:
+        return None
+
+#b 
+def main():
+
+    a = float(input("Entre com a: "))
+    b = float(input("Entre com b: "))
+    c = float(input("Entre com c: "))
+    d = float(input("Entre com d: "))
+
+    matriz = []
+    for ind in range(2):
+        matriz += [[0]*2]
+
+    matrizOriginal = matriz
+    matrizInvertida = inverteMatriz(matriz)
+    
+    imprimeMatriz(matrizOriginal)\t
+    imprimeMatriz(matrizInvertida)
+
+    def imprimeMatriz(matriz):
+
+        for ind1 in range(len(matriz)):
+            for ind2 in range(len(matriz[0])):
+                print (matriz[ind1][ind2], end = "\t")
+            print ()
+
+#3 
+def isCollisionDetected(BLx1,BLy1,TRx1,TRy1,BLx2,BLy2,TRx2,TRy2):
+    colisao = False
+    nlinhas1 = TRy1-BLy1
+    ncolunas1 = TRx1-BLx1
+    ncolunas2 = TRx2-BLx2
+    nlinhas2 = TRy2 - BLy2
+
+    for ind1 in range(nlinhas):
+        for ind2 in range(ncolunas):
+            if [ind1] = [ind2]
+                colisao = True
+
+    return colisao
+
+def main():
+    BLx2 = float(input("Entre com BLx2"))
+    BLy2 = float(input("Entre com BLy2"))
+    TRx2 = float(input("Entre com TRx2"))
+    TRy2 = float(input("Entre com TRy2"))
+
+    BLx1 = float(input("Entre com BLx1"))
+    BLy1 = float(input("Entre com BLy1"))
+    TRx1 = float(input("Entre com TRx1"))
+    TRy1 = float(input("Entre com TRy1"))
+
+    i = isCollisionDetected(BLx1,BLy1,TRx1,TRy1,BLx2,BLy2,TRx2,TRy2)
+        if i == True:
+            print ("Colisao detectada")
+
+        else:
+            print ("Colisao nao detectada")
